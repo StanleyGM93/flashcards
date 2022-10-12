@@ -19,14 +19,15 @@ export default function NewTopicForm() {
 		}
 
 		// dispatch your add topic action here
-
-		dispatch(
-			addTopic({
+		const payload = {
+			id: {
 				id: uuidv4(),
 				name: name,
 				icon: icon,
-			})
-		);
+			},
+		};
+		dispatch(addTopic(payload));
+
 		history.push(ROUTES.topicsRoute());
 	};
 
