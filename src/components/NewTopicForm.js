@@ -19,9 +19,10 @@ export default function NewTopicForm() {
 		}
 
 		// dispatch your add topic action here
+		let id = uuidv4();
 		const payload = {
-			id: {
-				id: uuidv4(),
+			[id]: {
+				id: id,
 				name: name,
 				icon: icon,
 			},
