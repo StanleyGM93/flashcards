@@ -1,27 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 export const topicsSlice = createSlice({
   name: "topics",
   initialState: {
-    topics: {}
+    topics: {
+      test: {
+        id: "123",
+        name: "example topic",
+        icon: "icon url",
+        quizIds: []
+      }
+    }
   },
+
   reducers: {
     addTopic: (state, action) => {
-      return {
-        ...state,
-        [action.payload.id]: {
-          id: action.payload.id,
-          name: action.payload.name,
-          icon: action.payload.icon,
-          quizIds: []
-        }
+      const { name, icon } = action.payload;
+      const id = uuidv4();
+      state.topics[id] = {
+        id,
+        name: name,
+        icon: icon,
+        quizIds: []
       };
-      // const { id, name, icon } = action.payload;
-      // state.topics[id] = {
-      //   id: id,
-      //   name: name,
-      //   icon: icon
-      // };
     }
   }
 });
