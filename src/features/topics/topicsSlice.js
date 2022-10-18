@@ -4,14 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const topicsSlice = createSlice({
   name: "topics",
   initialState: {
-    topics: {
-      test: {
-        id: "123",
-        name: "example topic",
-        icon: "icon url",
-        quizIds: []
-      }
-    }
+    topics: {}
   },
 
   reducers: {
