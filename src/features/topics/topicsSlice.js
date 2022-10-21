@@ -5,7 +5,7 @@ export const topicsSlice = createSlice({
   name: "topics",
   initialState: {
     topics: {
-      id: {
+      test_id: {
         id: "test_id",
         name: "example topic",
         icon: "icon url",
@@ -27,9 +27,7 @@ export const topicsSlice = createSlice({
     },
     addQuizId: (state, action) => {
       const { quizId, topicId } = action.payload;
-      const { quizIds } = state[topicId];
-      //Need to define quizIds?
-      quizIds.push(quizId);
+      state.topics[topicId].quizIds.push(quizId);
     }
   }
 });
