@@ -4,7 +4,14 @@ import { v4 as uuidv4 } from "uuid";
 export const topicsSlice = createSlice({
   name: "topics",
   initialState: {
-    topics: {}
+    topics: {
+      id: {
+        id: "test_id",
+        name: "example topic",
+        icon: "icon url",
+        quizIds: []
+      }
+    }
   },
 
   reducers: {
@@ -20,8 +27,9 @@ export const topicsSlice = createSlice({
     },
     addQuizId: (state, action) => {
       const { quizId, topicId } = action.payload;
+      const { quizIds } = state[topicId];
       //Need to define quizIds?
-      state[topicId].quizIds.push(quizId);
+      quizIds.push(quizId);
     }
   }
 });
