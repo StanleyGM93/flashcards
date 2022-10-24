@@ -4,8 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 import { useSelector, useDispatch } from "react-redux";
 import { quizActionCreator } from "../features/quizzes/quizzesSlice";
-import { addQuiz } from "../features/quizzes/quizzesSlice";
-import { addQuizId } from "../features/topics/topicsSlice";
+import { addCard } from "../features/cards/cardSlice";
 
 export default function NewQuizForm() {
 	const [name, setName] = useState("");
@@ -24,7 +23,12 @@ export default function NewQuizForm() {
 
 		const cardIds = [];
 
-		// create the new cards here and add each card's id to cardIds
+		// create the new cards here and add each card's id to cardIds'
+		const cardId = uuidv4();
+		// Check the way this data is structured. data is saved as cards array, need to pull
+		// front and back text out of this.
+		dispatch(addCard({ cardId, cards }));
+		cardIds.push(cardId);
 		// create the new quiz here
 		const quizId = uuidv4();
 		dispatch(quizActionCreator({ quizId, name, topicId, cardIds }));
