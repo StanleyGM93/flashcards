@@ -28,11 +28,12 @@ export default function NewQuizForm() {
 			const { front, back } = card;
 			dispatch(addCard({ id, front, back }));
 			cardIds.push(id);
+			return cardIds;
 		});
 		// create the new quiz here
 		const quizId = uuidv4();
 		dispatch(quizActionCreator({ quizId, name, topicId, cardIds }));
-
+		debugger;
 		history.push(ROUTES.quizzesRoute());
 	};
 
