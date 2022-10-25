@@ -14,7 +14,6 @@ export default function NewQuizForm() {
 	const { topics } = useSelector((state) => state.topics);
 	const dispatch = useDispatch();
 
-	console.log({ topics });
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (name.length === 0) {
@@ -24,11 +23,12 @@ export default function NewQuizForm() {
 		const cardIds = [];
 
 		// create the new cards here and add each card's id to cardIds'
-		const cardId = uuidv4();
-		// Check the way this data is structured. data is saved as cards array, need to pull
-		// front and back text out of this.
-		dispatch(addCard({ cardId, cards }));
-		cardIds.push(cardId);
+		const id = uuidv4();
+		cards.map((card) => {
+			const { front, back } = card;
+			dispatch(addCard({ id, front, back }));
+			cardIds.push(id);
+		});
 		// create the new quiz here
 		const quizId = uuidv4();
 		dispatch(quizActionCreator({ quizId, name, topicId, cardIds }));
