@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function Quizzes() {
   const { quizzes } = useSelector((state) => state.quizzes);
+
   return (
     <section className="center">
       <h1>Quizzes</h1>

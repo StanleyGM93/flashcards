@@ -31,8 +31,7 @@ export default function NewQuizForm() {
 			return cardIds;
 		});
 		// create the new quiz here
-		const quizId = uuidv4();
-		dispatch(quizActionCreator({ quizId, name, topicId, cardIds }));
+		dispatch(quizActionCreator({ id, name, topicId, cardIds }));
 		debugger;
 		history.push(ROUTES.quizzesRoute());
 	};
