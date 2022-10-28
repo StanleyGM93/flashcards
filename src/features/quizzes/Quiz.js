@@ -5,11 +5,9 @@ import { useSelector } from "react-redux";
 
 export default function Topic() {
   const { quizzes } = useSelector((state) => state.quizzes);
-  let { id } = useParams();
-  const quiz = quizzes[id];
+  let { quizId } = useParams();
+  const quiz = quizzes[quizId];
 
-  console.log("Quizzes =" + quizzes);
-  console.log("quizId = " + id);
   return (
     <section>
       <h1>{quiz.name}</h1>

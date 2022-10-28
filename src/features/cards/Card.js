@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Card({ id }) {
@@ -7,6 +6,7 @@ export default function Card({ id }) {
   const card = cards[id];
   const [flipped, setFlipped] = useState(false);
 
+  console.log("cards =" + cards);
   return (
     <li>
       <button className="card" onClick={(e) => setFlipped(!flipped)}>
