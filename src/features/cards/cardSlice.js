@@ -3,19 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cardSlice = createSlice({
   name: "cards",
   initialState: {
-    cards: {
-      card_id: {
-        id: "card_id",
-        front: "front_text",
-        back: "back text"
-      }
-    }
+    cards: {}
   },
   reducers: {
     addCard: (state, action) => {
-      const { id, front, back } = action.payload;
-      state.cards[id] = {
-        id,
+      const { cardId, front, back } = action.payload;
+      state.cards[cardId] = {
+        id: cardId,
         front: front,
         back: back
       };
@@ -25,4 +19,3 @@ export const cardSlice = createSlice({
 
 export const { addCard } = cardSlice.actions;
 export default cardSlice.reducer;
-debugger;
