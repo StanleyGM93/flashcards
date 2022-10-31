@@ -71,9 +71,13 @@ export default function NewQuizForm() {
 					onChange={(e) => setTopicId(e.currentTarget.value)}
 					placeholder="Topic"
 				>
-					<option value="Topic" style={{ border: "1px solid orange" }}>
-						Topic
-					</option>
+					{Object.values(topics).length === 0 ? (
+						<option value="add-topic">Please add a topic</option>
+					) : (
+						<option value="Topic" disabled>
+							Please select a topic
+						</option>
+					)}
 					{Object.values(topics).map((topic) => (
 						<option key={topic.id} value={topic.id}>
 							{topic.name}
