@@ -15,14 +15,13 @@ export default function NewQuizForm() {
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
-		debugger;
 		e.preventDefault();
 		if (name.length === 0) {
 			return;
 		}
-		// if (topicId === "") {
-		// 	return;
-		// }
+		if (topicId === "") {
+			return;
+		}
 		const cardIds = [];
 
 		// create the new cards here and add each card's id to cardIds'
@@ -75,9 +74,7 @@ export default function NewQuizForm() {
 					{Object.values(topics).length === 0 ? (
 						<option value="add-topic">Please add a topic</option>
 					) : (
-						<option value="Topic" disabled>
-							Please select a topic
-						</option>
+						<option value="Topic">Please select a topic</option>
 					)}
 					{Object.values(topics).map((topic) => (
 						<option key={topic.id} value={topic.id}>
