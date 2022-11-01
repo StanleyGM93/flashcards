@@ -19,7 +19,9 @@ export default function NewQuizForm() {
 		if (name.length === 0) {
 			return;
 		}
-
+		if (topicId === "") {
+			return;
+		}
 		const cardIds = [];
 
 		// create the new cards here and add each card's id to cardIds'
@@ -69,7 +71,12 @@ export default function NewQuizForm() {
 					onChange={(e) => setTopicId(e.currentTarget.value)}
 					placeholder="Topic"
 				>
-					<option value="">Topic</option>
+					{Object.values(topics).length === 0 ? (
+						<option value="">Please add a topic</option>
+					) : (
+						<option value="">Select a topic</option>
+					)}
+
 					{Object.values(topics).map((topic) => (
 						<option key={topic.id} value={topic.id}>
 							{topic.name}
