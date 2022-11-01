@@ -15,13 +15,14 @@ export default function NewQuizForm() {
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
+		debugger;
 		e.preventDefault();
 		if (name.length === 0) {
 			return;
 		}
-		if (topicId === "") {
-			return;
-		}
+		// if (topicId === "") {
+		// 	return;
+		// }
 		const cardIds = [];
 
 		// create the new cards here and add each card's id to cardIds'
